@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Pathstetic Games</title>
+  <link rel="stylesheet" href="CSS/ContactStyle.css" />
+  <link rel="shortcut icon" href="Images/IconPaths.png" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <a href="index.html"><img src="Images/PathsLogo.png" alt="Site Logo" class="logo" /></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="GamesPage.html">Games</a></li>
+        <li><a class="active" href="ContactPage.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home">
+    <section class="intro">
+      <div class="intro-layout">
+        <div class="intro-text">
+          <h1>Contact Me</h1>
+          <p>Send me your questions, thoughts, or ideas using the form below.</p>
+          <form action="/send-email" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+          <button type="submit" class="button">Send</button>
+        </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Pathstetic Games. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

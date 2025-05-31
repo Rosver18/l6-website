@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0e0e0e;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  animation: fadeIn 1s ease-in;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background-color: #111;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #3399ff;
+}
+
+.home {
+  background: url('../Images/HomeBG.gif') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home > * {
+  position: relative;
+  z-index: 2;
+}
+
+.intro {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.intro-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.intro-image {
+  flex: 5;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.intro-text {
+  flex: 3; 
+  padding: 1rem;
+}
+
+.intro-text p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #3399ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 2s ease;
+}
+
+.button:hover {
+  background-color: #3399ff;
+  transform: scale(1.05);
+}
+
+.featured-games {
+  padding: 4rem 2rem;
+  background-color: #1a1a1a;
+  animation: fadeIn 1.5s ease;
+}
+
+.featured-games h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 1.5s ease;
+}
+
+.game-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.game-card {
+  background-color: #222;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  animation: slideUp 1s ease forwards;
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+.game-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.intro-dev {
+  padding: 4rem 2rem;
+  background-color: #121212;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.quotes {
+  padding: 3rem 2rem;
+  background-color: #0d0d0d;
+  text-align: center;
+  font-style: italic;
+  color: #ccc;
+  animation: fadeIn 1.5s ease;
+}
+
+footer {
+  padding: 2rem;
+  background-color: #111;
+  text-align: center;
+  border-top: 1px solid #333;
+  animation: fadeIn 2s ease;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: #3399ff;
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

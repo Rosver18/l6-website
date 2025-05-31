@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games - Pathstetic</title>
+  <link rel="stylesheet" href="CSS/GamesStyle.css" />
+  <link rel="shortcut icon" href="Images/IconPaths.png" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <a href="index.html"><img src="Images/PathsLogo.png" alt="Site Logo" class="logo" /></a>
+      </div>
+      <ul class="nav-links">
+        <li><a class="active" href="GamesPage.html">Games</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home">
+    <section class="intro">
+      <div class="intro-layout">
+        <div class="intro-image">
+          <img src="Images/GamesIntro.png" alt="Games Page Intro Image" />
+        </div>
+        <div class="intro-text">
+          <p>
+            Welcome to the games page! Here, you'll find every project I've worked on — finished or not.
+            Watch trailers, try out demos, and download what catches your eye. Dive in and explore!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-games">
+      <div class="container">
+        <h2>All Games</h2>
+        <div class="game-preview">
+          <div class="game-container"><div class="game-card" id="baru-rush"></div></div>
+          <div class="game-container"><div class="game-card" id="worst-comes-to-worst"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Pathstetic Games. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://pathstetic.itch.io" target="_blank">itch.io</a>
+        <a href="https://youtube.com/@pathstetic?si=D-id6Z4RLy2VCjfN" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/paths.tetic/?utm_source=ig_web_button_share_sheet">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const apiKey = 'AIzaSyDebfDDS-5Bb-MBRKD1Jv-ggJrtUZVbhN0';
+    const games = [
+      {
+        id: 'baru-rush',
+        videoId: 'sY5WdTbINCw',
+        image: 'Images/BaruMain.png',
+        title: 'Baru Rush',
+        description: "A fast-paced platformer where you play as an adventurous cat on a mission. The twist? If you mess up and fall, you get respawned all the way back to the start of the level. No checkpoints, no hand-holding, just pure trial and error. It's simple, fun, and just the right amount of frustration in the best way possible!",
+        itchLink: 'https://pathstetic.itch.io/baru-rush'
+      },
+      {
+        id: 'worst-comes-to-worst',
+        videoId: 'erSxlNzgEnE',
+        image: 'Images/WCTWPreview.png',
+        title: 'Worst Comes To Worst',
+        description: "A story focused point-and-click adventure where every choice you make shapes the world around you. The world's gone sideways, twisted by a strange phenomenon known only as “the ills.” As you explore the ruins of what once was, you'll meet all kinds of characters, maybe some friends, some enemies, and plenty of things that don't quite fit into either category. The journey is emotional, and sometimes downright bizarre, but it's up to you to decide how it all plays out. Will you try to fix what's broken... or just survive the wreckage?",
+        itchLink: 'https://pathstetic.itch.io/worst-comes-to-worst'
+      }
+    ];
+
+    games.forEach(game => {
+      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${game.videoId}&key=${apiKey}`)
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById(game.id);
+          if (data.items && data.items.length > 0) {
+            const video = data.items[0].snippet;
+            container.innerHTML = `
+              <img src="${game.image}" alt="${game.title} Preview" />
+              <h3>${game.title}</h3>
+              <p>${game.description}</p>
+              <div class="video-container">
+                <iframe width="100%" height="250"
+                  src="https://www.youtube.com/embed/${game.videoId}"
+                  title="${video.title}" frameborder="0" allowfullscreen>
+                </iframe>
+              </div>
+              <a href="${game.itchLink}" target="_blank" class="button">Play on itch.io</a>
+            `;
+          } else {
+            container.innerHTML = `
+              <img src="${game.image}" alt="${game.title} Preview" />
+              <h3>${game.title}</h3>
+              <p>${game.description}</p>
+              <p><em>Video preview not available.</em></p>
+              <a href="${game.itchLink}" target="_blank" class="button">Play on itch.io</a>
+            `;
+          }
+        })
+        .catch(error => {
+          console.error('Error loading YouTube video data:', error);
+          const container = document.getElementById(game.id);
+          container.innerHTML = `
+            <img src="${game.image}" alt="${game.title} Preview" />
+            <h3>${game.title}</h3>
+            <p>${game.description}</p>
+            <p><em>Video preview failed to load.</em></p>
+            <a href="${game.itchLink}" target="_blank" class="button">Play on itch.io</a>
+          `;
+        });
+    });
+  </script>
+</body>
+</html>
