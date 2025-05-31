@@ -2,13 +2,14 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const bodyParser = require('body-parser');
+require('dotenv').config(); // Only used for local development
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')); // Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from /public
 
 // Email Route
 app.post('/send-email', async (req, res) => {
@@ -18,14 +19,14 @@ app.post('/send-email', async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'rosver5439@gmail.com',     
-      pass: 'tzdr gmbe muwa ezrj'         
+      user: process.env.EMAIL_USER, // Your Gmail
+      pass: process.env.EMAIL_PASS  // App password
     }
   });
 
   const mailOptions = {
     from: email,
-    to: 'rosver5439@gmail.com', 
+    to: process.env.EMAIL_TO, // Destination email
     subject: `Message from ${name}`,
     text: `
       Name: ${name}
