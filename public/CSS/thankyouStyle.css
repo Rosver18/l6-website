@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@ body, html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Main Thank You Layout */
 main {
   background: url('../Images/ContactBG.gif') no-repeat center center fixed;
   background-size: cover;
@@ -37,9 +39,11 @@ main > .thank-you-container {
   padding: 3rem;
   border-radius: 12px;
   max-width: 600px;
+  width: 90%;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 
+/* Header / Navbar */
 header {
   background: #121212;
   padding: 1rem 2rem;
@@ -72,6 +76,8 @@ header {
 
 .nav-links a {
   color: #d0d0d0;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .nav-links a:hover,
@@ -79,6 +85,7 @@ header {
   color: #3399ff;
 }
 
+/* Thank You Message */
 .thank-you-container h1 {
   font-size: 2.5rem;
   color: #3399ff;
@@ -90,6 +97,7 @@ header {
   margin-bottom: 2rem;
 }
 
+/* Button */
 .button {
   background: #3399ff;
   color: white;
@@ -104,6 +112,7 @@ header {
   background: #2677cc;
 }
 
+/* Footer */
 footer {
   background: #111111;
   padding: 2rem;
@@ -115,8 +124,78 @@ footer {
 .footer-links a {
   color: #3399ff;
   margin: 0 10px;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+
+/* Small desktops/laptops */
+@media (max-width: 1024px) {
+  .thank-you-container {
+    padding: 2.5rem;
+  }
+
+  .thank-you-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .thank-you-container p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .thank-you-container {
+    padding: 2rem;
+  }
+
+  .thank-you-container h1 {
+    font-size: 2rem;
+  }
+
+  .thank-you-container p {
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 0.7rem 1.3rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .thank-you-container {
+    padding: 1.5rem;
+  }
+
+  .thank-you-container h1 {
+    font-size: 1.75rem;
+  }
+
+  .thank-you-container p {
+    font-size: 0.95rem;
+  }
+
+  .button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .logo {
+    height: 40px;
+  }
 }
